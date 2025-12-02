@@ -6,7 +6,6 @@ from django.contrib.auth.decorators import login_required
 
 @login_required(login_url='login')
 def listar_produtos(request):
-    # Ordem crescente pelo ID (primeiro cadastrado aparece primeiro)
     produtos = Produto.objects.all().order_by('id')
     return render(request, 'produtos/listar.html', {'produtos': produtos})
 
